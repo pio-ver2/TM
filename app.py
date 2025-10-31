@@ -40,7 +40,7 @@ data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 st.title("🌊 **Reconocimiento de Imágenes con YOLO** 🐚")
 
 
-image = Image.open('OIG5.jpg')  
+image = Image.open('mar.png')  
 st.image(image, width=350)
 
 
