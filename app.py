@@ -5,7 +5,7 @@ from PIL import Image as Image, ImageOps as ImagOps
 from keras.models import load_model
 import platform
 
-# Estilo visual para el tema del océano
+
 st.markdown("""
     <style>
         body {
@@ -36,10 +36,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Muestra la versión de Python
+
 st.write("👨‍💻 **Versión de Python**:", platform.python_version())
 
-# Cargar el modelo entrenado
+
 model = load_model('keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
