@@ -78,18 +78,14 @@ if img_file_buffer is not None:
     prediction = model.predict(data)
     print(prediction)
     
-    # Mostrar los resultados de la predicción con una interpretación visual
+ 
     st.subheader("🔍 **Resultados de la Predicción**")
 
     if prediction[0][0] > 0.5:
         st.header('🌊 **Izquierda**, con Probabilidad: ' + str(prediction[0][0]))
     if prediction[0][1] > 0.5:
         st.header('🏝️ **Arriba**, con Probabilidad: ' + str(prediction[0][1]))
-    # Si tu modelo tiene más categorías, puedes añadirlas aquí:
-    # if prediction[0][2] > 0.5:
-    #     st.header('🏖️ **Derecha**, con Probabilidad: ' + str(prediction[0][2]))
 
-# Información adicional en el pie de página
 st.markdown("---")
 st.caption("""
 🌊 **Acerca de la aplicación**: Esta aplicación utiliza **YOLOv5** para detección de objetos en imágenes capturadas con la cámara. 
