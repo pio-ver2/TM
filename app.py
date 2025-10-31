@@ -29,6 +29,10 @@ st.markdown("""
         .stSidebar {
             background-color: #b2dfdb;  /* Barra lateral con fondo de agua suave */
         }
+        /* Cambiar color del texto específico a azul oscuro */
+        .custom-text {
+            color: #003366;  /* Azul oscuro */
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -49,10 +53,12 @@ Esta aplicación utiliza un **modelo entrenado en Teachable Machine** para recon
 # Barra lateral con descripción
 with st.sidebar:
     st.subheader("🏖️ **Usando un modelo entrenado en Teachable Machine**")
-    st.write("""
+    st.markdown("""
+    <div class="custom-text">
     Puedes utilizar este modelo para detectar diferentes tipos de imágenes relacionadas con el océano y la playa. 
     Ajusta los parámetros a continuación y toma una foto para obtener la predicción.
-    """)
+    </div>
+    """, unsafe_allow_html=True)
 
 # Captura de imagen con la cámara
 img_file_buffer = st.camera_input("📸 **Captura una Foto del Océano**")
@@ -78,14 +84,18 @@ if img_file_buffer is not None:
     prediction = model.predict(data)
     print(prediction)
     
- 
+    # Mostrar los resultados de la predicción con una interpretación visual
     st.subheader("🔍 **Resultados de la Predicción**")
 
     if prediction[0][0] > 0.5:
         st.header('🌊 **Izquierda**, con Probabilidad: ' + str(prediction[0][0]))
     if prediction[0][1] > 0.5:
         st.header('🏝️ **Arriba**, con Probabilidad: ' + str(prediction[0][1]))
+    # Si tu modelo tiene más categorías, puedes añadirlas aquí:
+    # if prediction[0][2] > 0.5:
+    #     st.header('🏖️ **Derecha**, con Probabilidad: ' + str(prediction[0][2]))
 
+# Información adicional en el pie de página
 st.markdown("---")
 st.caption("""
 🌊 **Acerca de la aplicación**: Esta aplicación utiliza **YOLOv5** para detección de objetos en imágenes capturadas con la cámara. 
