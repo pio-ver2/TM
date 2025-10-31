@@ -96,4 +96,4 @@ st.markdown("---")
 st.caption("""
 🌊 **Acerca de la aplicación**: Esta aplicación utiliza **YOLOv5** para detección de objetos en imágenes capturadas con la cámara. 
 Desarrollada con **Streamlit** y **Keras** para reconocimiento de objetos relacionados con el océano. 🐋
-""")
+""") 
